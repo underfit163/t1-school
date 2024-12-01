@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: t1-school
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/t1_db
+    username: postgres
+    password: postgres_secret
+  docker:
+    compose:
+      file: ./compose.yaml
+      enabled: true
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+    enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+logging:
+  config: classpath:/config/logback-spring.xml
