@@ -1,0 +1,35 @@
+###Получение списка всех задач
+GET http://localhost:8080/api/v1/tasks
+Content-Type: application/json
+
+###Получение задачи по id
+@getId = 2
+GET http://localhost:8080/api/v1/tasks/{{getId}}
+Content-Type: application/json
+
+###Создание задачи
+POST http://localhost:8080/api/v1/tasks
+Content-Type: application/json
+
+{
+  "title": "Задача",
+  "description": "Описание задачи",
+  "userId": 1
+}
+
+###Обновление задачи
+@updateId = 2
+PUT http://localhost:8080/api/v1/tasks/{{updateId}}
+Content-Type: application/json
+
+{
+  "title": "Новая задача 2",
+  "description": "Описание новой задачи 2",
+  "userId": 3
+}
+
+###Удаление задачи
+@deleteId = 1
+
+DELETE http://localhost:8080/api/v1/tasks/{{deleteId}}
+Content-Type: application/json
