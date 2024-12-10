@@ -1,5 +1,7 @@
 server:
   port: 8080
+logging:
+  config: classpath:/config/logback-spring.xml
 spring:
   application:
     name: t1-school
@@ -19,5 +21,48 @@ spring:
     hibernate:
       ddl-auto: validate
     show-sql: true
-logging:
-  config: classpath:/config/logback-spring.xml
+  task:
+    execution:
+      pool:
+        core-size: 100                 # Количество потоков, которые всегда активны
+        max-size: 100                  # Максимальное количество потоков
+        queue-capacity: 1000             # Размер очереди задач
+        keep-alive: 60s                 # Время ожидания завершения потоков при простое
+        allow-core-thread-timeout: true # Основные потоки могут быть завершены
+      shutdown:
+        await-termination: true
+        await-termination-period: 10s
+      thread-name-prefix: "TaskExecutor-"
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL_NAME}
+    password: ${EMAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    test-connection: false
+    protocol: smtp
+t1:
+  kafka:
+    producer:
+      servers: ${KAFKA_SERVER:localhost:9092}
+      topic: ${KAFKA_TOPIC_PRODUCER:'task-notification'}
+      asks: 1
+    consumer:
+      servers: ${KAFKA_SERVER:localhost:9092}
+      topic: ${KAFKA_TOPIC_CONSUMER:'task-notification'}
+      group-id: ${KAFKA_GROUP_ID:'task-group'}
+      max-poll-records: 1
+      max-partition-fetch-bytes: 300000
+      max-poll-interval: 3000
+      session-timout-ms: 15000
+      auto-offset-reset: "earliest"
+  notification:
+    emails:
+      - "163tyschckun163@gmail.com"
+      - "underfitwork@gmail.com"

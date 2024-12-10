@@ -57,7 +57,7 @@ public class TaskServiceImpl implements TaskService {
     @Override
     @LogExecution
     @TimeExecutionTracking
-    @CachePut(value = "task",key = "#id")
+    @CachePut(value = "task", key = "#id")
     public ResponseTaskDto updateTask(@NotNull @Positive Long id, @Valid RequestTaskDto requestTaskDto) {
         Task task = getTaskFromRepository(id);
         task = taskMapper.partialUpdate(requestTaskDto, task);
@@ -68,7 +68,7 @@ public class TaskServiceImpl implements TaskService {
     @Override
     @LogExecution
     @TimeExecutionTracking
-    @CacheEvict(value = "task",key = "#id")
+    @CacheEvict(value = "task", key = "#id")
     public void deleteTask(@NotNull @Positive Long id) {
         if (!taskRepository.existsById(id))
             throw new EntityNotFoundException("The task with the ID %s does not exist".formatted(id));

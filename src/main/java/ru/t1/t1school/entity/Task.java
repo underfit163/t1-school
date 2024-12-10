@@ -22,4 +22,8 @@ public class Task {
 
     @Column(name = "user_id")
     private Long userId;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private Status status;
 }

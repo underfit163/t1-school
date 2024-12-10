@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.t1.t1school.dto.RequestTaskDto;
 import ru.t1.t1school.dto.ResponseTaskDto;
+import ru.t1.t1school.service.TaskNotificationFacade;
 import ru.t1.t1school.service.TaskService;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TaskController {
     private final TaskService taskService;
+    private final TaskNotificationFacade taskNotificationFacade;
 
     @GetMapping
     public List<ResponseTaskDto> getListTask() {
@@ -32,7 +34,7 @@ public class TaskController {
 
     @PutMapping("/{id}")
     public ResponseTaskDto updateTask(@PathVariable Long id, @RequestBody RequestTaskDto requestTaskDto) {
-        return taskService.updateTask(id, requestTaskDto);
+        return taskNotificationFacade.updateTaskWithNotification(id, requestTaskDto);
     }
 
     @DeleteMapping("/{id}")
