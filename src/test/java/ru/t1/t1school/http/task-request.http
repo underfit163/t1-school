@@ -33,3 +33,15 @@ Content-Type: application/json
 
 DELETE http://localhost:8080/api/v1/tasks/{{deleteId}}
 Content-Type: application/json
+
+###Обновление статуса задачи
+@notificId = 2
+PUT http://localhost:8080/api/v1/tasks/{{notificId}}
+Content-Type: application/json
+
+{
+  "title": "Новая задача 2",
+  "description": "Описание новой задачи 2",
+  "userId": 3,
+  "status": "CLOSED"
+}

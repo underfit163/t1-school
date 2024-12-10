@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1733681488055-1
+      author: Tyshkun Andrey
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: status
+                  type: VARCHAR(255)
+            tableName: task
+
