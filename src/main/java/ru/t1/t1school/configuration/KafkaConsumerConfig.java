@@ -18,6 +18,7 @@ import org.springframework.kafka.support.serializer.ErrorHandlingDeserializer;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.util.backoff.FixedBackOff;
 import ru.t1.t1school.dto.NotificationTaskDto;
+import ru.t1.t1school.mapper.TaskNotificationDeserializer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +36,7 @@ public class KafkaConsumerConfig {
         configProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, consumerProps.servers());
         configProps.put(ConsumerConfig.GROUP_ID_CONFIG, consumerProps.groupId());
         configProps.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, LongDeserializer.class);
-        configProps.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class); // можно написать свой
+        configProps.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, TaskNotificationDeserializer.class); // можно написать свой
         configProps.put(JsonDeserializer.VALUE_DEFAULT_TYPE, "ru.t1.t1school.dto.NotificationTaskDto");// можно написать свой
         configProps.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
         configProps.put(JsonDeserializer.USE_TYPE_INFO_HEADERS, Boolean.FALSE);
