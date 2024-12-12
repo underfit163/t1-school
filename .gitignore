@@ -1,5 +1,6 @@
 postgres_data
 logs
+src/main/resources/env
 
 HELP.md
 target/
