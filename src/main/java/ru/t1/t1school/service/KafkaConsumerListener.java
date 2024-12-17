@@ -6,8 +6,9 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Service;
-import ru.t1.t1school.aspect.annotation.LogExecution;
-import ru.t1.t1school.aspect.annotation.TimeExecutionTracking;
+
+import ru.t1.logstarter.aspect.annotation.LogExecution;
+import ru.t1.logstarter.aspect.annotation.TimeExecutionTracking;
 import ru.t1.t1school.dto.NotificationTaskDto;
 
 import java.time.Duration;
