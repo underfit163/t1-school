@@ -11,8 +11,9 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
-import ru.t1.t1school.aspect.annotation.LogExecution;
-import ru.t1.t1school.aspect.annotation.TimeExecutionTracking;
+
+import ru.t1.logstarter.aspect.annotation.LogExecution;
+import ru.t1.logstarter.aspect.annotation.TimeExecutionTracking;
 import ru.t1.t1school.dto.RequestTaskDto;
 import ru.t1.t1school.dto.ResponseTaskDto;
 import ru.t1.t1school.entity.Task;

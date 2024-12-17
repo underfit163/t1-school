@@ -6,7 +6,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import ru.t1.t1school.aspect.annotation.LogExecution;
+import ru.t1.logstarter.aspect.annotation.LogExecution;
 import ru.t1.t1school.configuration.NotificationProps;
 import ru.t1.t1school.dto.NotificationTaskDto;
 

@@ -4,7 +4,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
-import ru.t1.t1school.aspect.annotation.LogExecution;
+
+import ru.t1.logstarter.aspect.annotation.LogExecution;
 import ru.t1.t1school.configuration.ProducerProps;
 import ru.t1.t1school.dto.NotificationTaskDto;
 

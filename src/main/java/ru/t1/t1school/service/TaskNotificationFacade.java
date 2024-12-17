@@ -2,7 +2,8 @@ package ru.t1.t1school.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.t1.t1school.aspect.annotation.LogExecution;
+
+import ru.t1.logstarter.aspect.annotation.LogExecution;
 import ru.t1.t1school.dto.NotificationTaskDto;
 import ru.t1.t1school.dto.RequestTaskDto;
 import ru.t1.t1school.dto.ResponseTaskDto;

@@ -2,6 +2,14 @@ server:
   port: 8080
 logging:
   config: classpath:/config/logback-spring.xml
+  service:
+    enabled: false
+    filter-level: info
+    log-level: info
+  http:
+    enabled: true
+    filter-level: trace
+    log-level: trace
 spring:
   application:
     name: t1-school
